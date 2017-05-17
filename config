@@ -1,0 +1,9 @@
+# :set ft=sh
+TITLE="GrootFS Dashboard of hard truths"
+DESCRIPTION="It's a dashboard. It has graphs."
+PREFIX="datadog.nozzle"
+BOSH_PREFIX="bosh.healthmonitor.system"
+QUERY="deployment:cf-foo-bar"
+DASH_ID=0
+API_KEY="123abc"
+APP_KEY="123abc"

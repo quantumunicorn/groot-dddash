@@ -1,0 +1,306 @@
+{
+  "title": "<%= title %>",
+  "description": "<%= description %>",
+  "graphs": [
+    {
+      "definition": {
+        "viz": "timeseries",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.grootfs.ImageCreationTime{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true,
+        "status": "done",
+        "yaxis": {
+          "units": true
+        }
+      },
+      "title": "Create duration"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.grootfs.ImageDeletionTime{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true,
+        "status": "done",
+        "yaxis": {
+          "units": true
+        }
+      },
+      "title": "Delete duration"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.grootfs.ImageCleanTime{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true,
+        "status": "done",
+        "yaxis": {
+          "units": true
+        }
+      },
+      "title": "Clean duration"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.grootfs.ImageStatsTime{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true,
+        "status": "done",
+        "yaxis": {
+          "units": true
+        }
+      },
+      "title": "Stats duration"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.grootfs.UnpackTime{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true,
+        "status": "done",
+        "yaxis": {
+          "units": true
+        }
+      },
+      "title": "Unpack duration"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.grootfs.StoreUsage{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true,
+        "status": "done",
+        "yaxis": {
+          "units": true
+        }
+      },
+      "title": "Store usage"
+    },
+    {
+      "definition": {
+        "requests": [
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_create.run{<%= query %>})",
+            "type": "line"
+          },
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_create.success{<%= query %>})",
+            "type": "line",
+            "style": {
+              "palette": "warm"
+            }
+          },
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_create.fail{<%= query %>})",
+            "type": "line",
+            "style": {
+              "palette": "purple"
+            }
+          }
+        ],
+        "viz": "timeseries",
+        "autoscale": true
+      },
+      "title": "Creates"
+    },
+    {
+      "definition": {
+        "requests": [
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_delete.run{<%= query %>})",
+            "type": "line"
+          },
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_delete.success{<%= query %>})",
+            "type": "line",
+            "style": {
+              "palette": "warm"
+            }
+          },
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_delete.fail{<%= query %>})",
+            "type": "line",
+            "style": {
+              "palette": "purple"
+            }
+          }
+        ],
+        "viz": "timeseries",
+        "autoscale": true
+      },
+      "title": "Deletes"
+    },
+    {
+      "definition": {
+        "requests": [
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_stats.run{<%= query %>})",
+            "type": "line"
+          },
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_stats.success{<%= query %>})",
+            "type": "line",
+            "style": {
+              "palette": "warm"
+            }
+          },
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_stats.fail{<%= query %>})",
+            "type": "line",
+            "style": {
+              "palette": "purple"
+            }
+          }
+        ],
+        "viz": "timeseries",
+        "autoscale": true
+      },
+      "title": "Stats"
+    },
+    {
+      "definition": {
+        "requests": [
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_clean.run{<%= query %>})",
+            "type": "line"
+          },
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_clean.success{<%= query %>})",
+            "type": "line",
+            "style": {
+              "palette": "warm"
+            }
+          },
+          {
+            "q": "per_minute(max:<%= prefix %>.grootfs.grootfs_clean.fail{<%= query %>})",
+            "type": "line",
+            "style": {
+              "palette": "purple"
+            }
+          }
+        ],
+        "viz": "timeseries",
+        "autoscale": true
+      },
+      "title": "Cleans"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= bosh_prefix %>.cpu.user{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          },
+          {
+            "q": "anomalies(max:<%= bosh_prefix %>.cpu.sys{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          },
+          {
+            "q": "anomalies(max:<%= bosh_prefix %>.cpu.wait{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true,
+        "status": "done"
+      },
+      "title": "CPU Load"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= bosh_prefix %>.disk.ephemeral.inode_percent{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          },
+          {
+            "q": "anomalies(max:<%= bosh_prefix %>.disk.ephemeral.percent{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          },
+          {
+            "q": "anomalies(max:<%= bosh_prefix %>.mem.percent{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          },
+          {
+            "q": "anomalies(max:<%= bosh_prefix %>.swap.kb{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true,
+        "status": "error"
+      },
+      "title": "Disk and Memory usage"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.rep.GardenContainerCreationDuration{<%= query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true,
+        "status": "done"
+      },
+      "title": "Container creation time"
+    }
+  ]
+}
