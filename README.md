@@ -3,7 +3,7 @@
 Model [DataDog](https://www.datadoghq.com/) dashboard for [CF
 GrootFS](https://github.com/cloudfoundry/grootfs-release)'s needs.
 
-See [T&C](#t-c) bellow!
+See [T&C](#tc) bellow!
 
 # How to configure?
 
