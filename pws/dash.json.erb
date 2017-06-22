@@ -4,6 +4,23 @@
   "graphs": [
     {
       "definition": {
+        {
+          "viz": "timeseries",
+          "status": "done",
+          "requests": [
+            {
+              "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.dstate_processes{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+              "aggregator": "avg",
+              "conditional_formats": [],
+              "type": "line"
+            }
+          ],
+          "autoscale": true
+        },
+        "title": "GROOTFS: DSTATE Processes"
+    },
+    {
+      "definition": {
         "viz": "timeseries",
         "status": "done",
         "requests": [
