@@ -1,0 +1,8 @@
+# :set ft=sh
+TITLE="Grootfs PWS Cells"
+PREFIX="datadog.nozzle"
+GROOTFS_QUERY="job:diego-cell"
+SHED_QUERY="job:diego-cell-shed"
+DASH_ID=0
+API_KEY="123abc"
+APP_KEY="123abc"

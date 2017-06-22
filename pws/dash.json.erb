@@ -1,0 +1,204 @@
+{
+  "title": "<%= title %>",
+  "description": "https://www.pivotaltracker.com/story/show/147621385",
+  "graphs": [
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.rep.GardenContainerCreationDuration{<%= grootfs_query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: Container Creation Time"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "sum:<%= prefix %>.nozzle.rep.UnhealthyCell{<%= grootfs_query %>}",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: Sum of Unhealthy Cells"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.rep.ContainerCount{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: Sum of Containers"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ImageCreationTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: Image creation time"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.UnpackTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: Unpack Time"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ImageDeletionTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: Deletion Time"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ImageStatsTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: Stats Time"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ImageCleanTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: Clean Time"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ExclusiveLockingTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          },
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.SharedLockingTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: Locking time"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.rep.GardenContainerCreationDuration{<%= shed_query %>}.rollup(max, 1), 'adaptive', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "SHED: Container Creation Time"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "sum:<%= prefix %>.nozzle.rep.UnhealthyCell{<%= shed_query %>}",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "SHED: Sum of Unhealthy Cells"
+    },
+    {
+      "definition": {
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.nozzle.rep.ContainerCount{<%= shed_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "SHED: Sum of Containers"
+    }
+  ]
+}
