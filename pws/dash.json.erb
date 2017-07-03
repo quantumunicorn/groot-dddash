@@ -4,20 +4,19 @@
   "graphs": [
     {
       "definition": {
-        {
-          "viz": "timeseries",
-          "status": "done",
-          "requests": [
-            {
-              "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.dstate_processes{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
-              "aggregator": "avg",
-              "conditional_formats": [],
-              "type": "line"
-            }
-          ],
-          "autoscale": true
-        },
-        "title": "GROOTFS: DSTATE Processes"
+        "viz": "timeseries",
+        "status": "done",
+        "requests": [
+          {
+            "q": "anomalies(max:<%= prefix %>.grootfs.dstate_processes{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "aggregator": "avg",
+            "conditional_formats": [],
+            "type": "line"
+          }
+        ],
+        "autoscale": true
+      },
+      "title": "GROOTFS: DSTATE Processes"
     },
     {
       "definition": {
@@ -25,7 +24,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.rep.GardenContainerCreationDuration{<%= grootfs_query %>}.rollup(max, 1), 'adaptive', 1)",
+            "q": "anomalies(max:<%= prefix %>.rep.GardenContainerCreationDuration{<%= grootfs_query %>}.rollup(max, 1), 'adaptive', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -41,7 +40,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "sum:<%= prefix %>.nozzle.rep.UnhealthyCell{<%= grootfs_query %>}",
+            "q": "sum:<%= prefix %>.rep.UnhealthyCell{<%= grootfs_query %>}",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -57,7 +56,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.rep.ContainerCount{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "q": "anomalies(sum:<%= prefix %>.rep.ContainerCount{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -73,7 +72,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ImageCreationTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "q": "anomalies(max:<%= prefix %>.grootfs.ImageCreationTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -89,7 +88,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.UnpackTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "q": "anomalies(max:<%= prefix %>.grootfs.UnpackTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -105,7 +104,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ImageDeletionTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "q": "anomalies(max:<%= prefix %>.grootfs.ImageDeletionTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -121,7 +120,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ImageStatsTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "q": "anomalies(max:<%= prefix %>.grootfs.ImageStatsTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -137,7 +136,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ImageCleanTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "q": "anomalies(max:<%= prefix %>.grootfs.ImageCleanTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -153,13 +152,13 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.ExclusiveLockingTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "q": "anomalies(max:<%= prefix %>.grootfs.ExclusiveLockingTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
           },
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.grootfs.SharedLockingTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
+            "q": "anomalies(max:<%= prefix %>.grootfs.SharedLockingTime{<%= grootfs_query %>}.rollup(max, 1), 'basic', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -175,7 +174,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.rep.GardenContainerCreationDuration{<%= shed_query %>}.rollup(max, 1), 'adaptive', 1)",
+            "q": "anomalies(max:<%= prefix %>.rep.GardenContainerCreationDuration{<%= shed_query %>}.rollup(max, 1), 'adaptive', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -191,7 +190,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "sum:<%= prefix %>.nozzle.rep.UnhealthyCell{<%= shed_query %>}",
+            "q": "sum:<%= prefix %>.rep.UnhealthyCell{<%= shed_query %>}",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
@@ -207,7 +206,7 @@
         "status": "done",
         "requests": [
           {
-            "q": "anomalies(max:<%= prefix %>.nozzle.rep.ContainerCount{<%= shed_query %>}.rollup(max, 1), 'basic', 1)",
+            "q": "anomalies(sum:<%= prefix %>.rep.ContainerCount{<%= shed_query %>}.rollup(max, 1), 'basic', 1)",
             "aggregator": "avg",
             "conditional_formats": [],
             "type": "line"
